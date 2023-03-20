@@ -13,9 +13,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class BlogSearchResult {
 	
-	private int page;
-	private int size;
-	
 	private List<SearchItem> searchItems;
 	
 	@Data
