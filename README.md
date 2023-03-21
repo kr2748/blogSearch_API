@@ -1,9 +1,8 @@
 # blogSearch_API
-blogSearch_API
 
 Jar 파일 다운로드 URL :: https://drive.google.com/file/d/1JVDtRZnAgiExbd2QthJBeqtDzUzVeu_V/view?usp=share_link
 
-API 명세
+**API 명세**
 
 1. 블로그 검색
    GET /blog/search
@@ -43,15 +42,14 @@ API 명세
    | 3 | count | 검색횟수 |
 
 
-결과 코드
+**결과 코드**
  
    | code | 설명 |
    | :---: | :---: |
    | 0 | 정상 |
-   | -1 |  |
-   | -2 | count |
-   | -3 | keyword |
-   | -4 | count |
-   | -5 | keyword |
-   | -6 | count |
-   | -7 | keyword |
+   | -1 | 검색어 누락 |
+   | -2 | 페이지 번호는 1 ~ 50까지만 입력 가능합니다. |
+   | -3 | 페이지당 건수는 1 ~ 50까지만 입력 가능합니다. |
+   | -4 | count정렬방식은 0(정확도), 1(최신순)만 입력 가능합니다. |
+   | -5 | Open API 에러 |
+   | -6 | 알 수 없는 오류 |
