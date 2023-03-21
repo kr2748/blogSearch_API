@@ -36,7 +36,22 @@ API 명세
    Host: localhost:8081
    
    response
-   - keyword 검색어
-   - count 검색 횟수
+    | | data | 설명 |
+   | :---: | :---: | :---: |
+   | 1 | rank | 순위 |
+   | 2 | keyword | 검색어 |
+   | 3 | count | 검색횟수 |
+
 
 결과 코드
+ 
+   | code | 설명 |
+   | :---: | :---: |
+   | 0 | 정상 |
+   | -1 |  |
+   | -2 | count |
+   | -3 | keyword |
+   | -4 | count |
+   | -5 | keyword |
+   | -6 | count |
+   | -7 | keyword |
