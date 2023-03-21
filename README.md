@@ -18,18 +18,19 @@ API 명세
    | 4 | pageSize | 페이지당 조회 건 수 (1 ~ 50) | N |
    
    response
-   - code 결과코드
-   - message 결과메시지
-   - count 결과 건 수
-   - page 조회 페이지 번호
-   - pageSize 페이지당 조회 건 수
-   - result 결과
-        > title 제목
-        > contents 컨텐츠
-        > url 블로그url
-        > blogname 블로그이름
-        > datetime 포스트시간
-   
+    | | data | 설명 |
+   | :---: | :---: | :---: |
+   | 1 | code | 결과코드 |
+   | 2 | message | 결과메시지 |
+   | 3 | page | 조회 페이지 번호 |
+   | 4 | pageSize | 페이지당 조회 건 수 |
+   | 5 | result | 결과 |
+   | 5-1 | title | 제목 |
+   | 5-2 | contents | 컨텐츠 |
+   | 5-3 | url | 블로그url |
+   | 5-4 | blogname | 블로그이름 |
+   | 5-5 | datetime | 포스트시간 |
+  
 2. 검색 순위
    GET /blog/ranking
    Host: localhost:8081
