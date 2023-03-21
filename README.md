@@ -10,10 +10,12 @@ API 명세
    Host: localhost:8081
    
    request parameter
-   - keyword 검색어(필수)
-   - sortType 정렬방식(선택)
-   - pageNum 페이지 번호(선택)
-   - pageSize 페이지당 조회 건 수(선택)
+   | | param | 설명 | 필수여부 |
+   | :---: | :---: | :---: | :---: | 
+   | 1 | keyword | 검색어 | Y |
+   | 2 | sortType | 정렬방식 (0 : 정확도(Default), 1 : 최신순) | N |
+   | 3 | pageNum | 페이지번호 (1 ~ 50) | N |
+   | 4 | pageSize | 페이지당 조회 건 수 (1 ~ 50) | N |
    
    response
    - code 결과코드
