@@ -10,7 +10,7 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
    
    request parameter
    | | param | 설명 | 필수여부 |
-   | :---: | :---: | :---: | :---: | 
+   | :---: | :---: | :--- | :---: | 
    | 1 | keyword | 검색어 | Y |
    | 2 | sortType | 정렬방식 (0 : 정확도(Default), 1 : 최신순) | N |
    | 3 | pageNum | 페이지번호 (1 ~ 50) | N |
@@ -18,7 +18,7 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
    
    response
     | | data | 설명 |
-   | :---: | :---: | :---: |
+   | :---: | :---: | :--- |
    | 1 | code | 결과코드 |
    | 2 | message | 결과메시지 |
    | 3 | page | 조회 페이지 번호 |
@@ -36,7 +36,7 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
    
    response
     | | data | 설명 |
-   | :---: | :---: | :---: |
+   | :---: | :---: | :--- |
    | 1 | rank | 순위 |
    | 2 | keyword | 검색어 |
    | 3 | count | 검색횟수 |
@@ -45,7 +45,7 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
 **결과 코드**
  
    | code | 설명 |
-   | :---: | :---: |
+   | :---: | :--- |
    | 0 | 성공 |
    | -1 | 검색어 누락 |
    | -2 | 페이지 번호는 1 ~ 50까지만 입력 가능합니다. |
@@ -57,7 +57,7 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
 **테스트 케이스**
 
 | code | url |
-   | :---: | :---: |
+   | :---: | :--- |
    | 0 | http://localhost:8081/blog/search?keyword=카카오뱅크 |
    | 0 | http://localhost:8081/blog/search?keyword=카카오뱅크&sortType=1&pageNum=2&pageSize=5 |
    | -1 | http://localhost:8081/blog/search?keyword= |
