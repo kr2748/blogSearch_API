@@ -73,7 +73,7 @@ public class BlogSearchServiceImpl implements BlogSearchService {
 				.count(kakaoResult.getMeta().getTotal_count())
 				.page(blogSearchRequest.getPageNum())
 				.pageSize(blogSearchRequest.getPageSize())
-				.message("¼º°ø")
+				.message("성공")
 				.result(mappingUtil.kakaoMapping(kakaoResult).getSearchItems())
 				.build();
 		
@@ -111,7 +111,7 @@ public class BlogSearchServiceImpl implements BlogSearchService {
 				.count(naverResult.getTotal())
 				.page(blogSearchRequest.getPageNum())
 				.pageSize(blogSearchRequest.getPageSize())
-				.message("¼º°ø")
+				.message("성공")
 				.result(mappingUtil.naverMapping(naverResult).getSearchItems())
 				.build();
 	}
