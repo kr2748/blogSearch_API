@@ -5,8 +5,8 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
 **API 명세**
 
 1. 블로그 검색
-   GET /blog/search
-   Host: localhost:8081
+   - GET /blog/search
+   - Host: localhost:8081
    
    request parameter
    | | param | 설명 | 필수여부 |
@@ -31,8 +31,8 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
    | 5-5 | datetime | 포스트시간 |
   
 2. 검색 순위
-   GET /blog/ranking
-   Host: localhost:8081
+   - GET /blog/ranking
+   - Host: localhost:8081
    
    response
     | | data | 설명 |
