@@ -1,5 +1,6 @@
 package kr.gykim.blogsearch.utils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.NoResultException;
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import kr.gykim.blogsearch.dto.response.KeywordRankResult;
 import kr.gykim.blogsearch.entity.KeywordEntity;
 import kr.gykim.blogsearch.repository.KeywordRepository;
 
@@ -43,8 +45,19 @@ public class CountingUtil {
 	 * 키워드 랭킹 10위까지
 	 * @return
 	 */
-	public List<KeywordEntity> ranking() throws Exception{
-		return keywordRepository.findOrderByCountDesc();
+	public List<KeywordRankResult> ranking() throws Exception{
+		List<KeywordRankResult> rankResult = new ArrayList<KeywordRankResult>();
+		List<KeywordEntity> ranking = keywordRepository.findOrderByCountDesc();
+		int rankingSize = ranking.size();
+		for(int i=0;i<rankingSize;i++) {
+			KeywordRankResult keywordRank = new KeywordRankResult();
+			keywordRank.setRank(i+1);
+			keywordRank.setKeyword(ranking.get(i).getKeyword());
+			keywordRank.setCount(ranking.get(i).getCount());
+			rankResult.add(keywordRank);
+		}
+		
+		return rankResult;
 	}
 	
 }

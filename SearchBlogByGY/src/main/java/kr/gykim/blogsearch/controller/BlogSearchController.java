@@ -1,5 +1,7 @@
 package kr.gykim.blogsearch.controller;
 
+import javax.persistence.NoResultException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -46,19 +48,27 @@ public class BlogSearchController {
 		countingThread.start();
 		
 		BaseResponse searchResult = blogSearchService.blogSearch(blogSearchRequest);
-		return new ResponseEntity<BaseResponse>(searchResult, HttpStatus.OK);
+		return new ResponseEntity<BaseResponse>(searchResult,searchResult.getCode() != 0 ? HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.OK);
 	}
 
 	
 	@GetMapping("/ranking")
-	public ResponseEntity<BaseResponse> ranking() throws Exception {
-		BaseResponse ranking = new BaseResponse().builder()
-				.code(200)
-				.httpStatus(HttpStatus.OK)
-				.message("성공")
-				.result(countingUtil.ranking())
-				.build();
-		return new ResponseEntity<BaseResponse>(ranking, HttpStatus.OK);
+	public ResponseEntity<BaseResponse> ranking() {
+		BaseResponse ranking = null;
+		try {
+			ranking = new BaseResponse().builder()
+					.code(0)
+					.message("성공")
+					.result(countingUtil.ranking())
+					.build();
+		} catch(Exception e) {
+			ranking = new BaseResponse().builder()
+					.code(-6)
+					.message("알 수 없는 오류")
+					.result(null)
+					.build();
+		}
+		return new ResponseEntity<BaseResponse>(ranking, ranking.getCode() != 0 ? HttpStatus.INTERNAL_SERVER_ERROR : HttpStatus.OK);
 	}
 	
 	

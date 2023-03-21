@@ -60,22 +60,20 @@ public class BlogSearchServiceImpl implements BlogSearchService {
 		
 		if(kakaoResult.getErrorType() != null) {
 			return new BaseResponse().builder()
-					.code(500)
+					.code(-5)
 					.count(0)
 					.page(blogSearchRequest.getPageNum())
 					.pageSize(blogSearchRequest.getPageSize())
-					.httpStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 					.message(kakaoResult.getMessage())
 					.result(null)
 					.build();
 		}
 
 		return new BaseResponse().builder()
-				.code(200)
+				.code(0)
 				.count(kakaoResult.getMeta().getTotal_count())
 				.page(blogSearchRequest.getPageNum())
 				.pageSize(blogSearchRequest.getPageSize())
-				.httpStatus(HttpStatus.OK)
 				.message("성공")
 				.result(mappingUtil.kakaoMapping(kakaoResult).getSearchItems())
 				.build();
@@ -100,22 +98,20 @@ public class BlogSearchServiceImpl implements BlogSearchService {
 		
 		if(naverResult.getErrorCode() != null) {
 			return new BaseResponse().builder()
-					.code(500)
+					.code(-5)
 					.count(0)
 					.page(blogSearchRequest.getPageNum())
 					.pageSize(blogSearchRequest.getPageSize())
-					.httpStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 					.message(naverResult.getErrorMessage())
 					.result(null)
 					.build();
 		}
 		
 		return new BaseResponse().builder()
-				.code(200)
+				.code(0)
 				.count(naverResult.getTotal())
 				.page(blogSearchRequest.getPageNum())
 				.pageSize(blogSearchRequest.getPageSize())
-				.httpStatus(HttpStatus.OK)
 				.message("성공")
 				.result(mappingUtil.naverMapping(naverResult).getSearchItems())
 				.build();

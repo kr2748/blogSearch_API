@@ -21,11 +21,6 @@ public class BaseResponse {
 	private Integer code;
 	
 	/**
-	 * HTTP 상태 코드
-	 */
-	private HttpStatus httpStatus;
-	
-	/**
 	 * 결과 메시지
 	 */
 	private String message;
