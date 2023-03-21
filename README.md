@@ -46,10 +46,22 @@ Jar 파일 다운로드 URL :: https://drive.google.com/file/d/11QaamD7iJeQDJrfu
  
    | code | 설명 |
    | :---: | :---: |
-   | 0 | 정상 |
+   | 0 | 성공 |
    | -1 | 검색어 누락 |
    | -2 | 페이지 번호는 1 ~ 50까지만 입력 가능합니다. |
    | -3 | 페이지당 건수는 1 ~ 50까지만 입력 가능합니다. |
    | -4 | count정렬방식은 0(정확도), 1(최신순)만 입력 가능합니다. |
    | -5 | Open API 에러 |
    | -6 | 알 수 없는 오류 |
+
+**테스트 케이스**
+
+| code | url |
+   | :---: | :---: |
+   | 0 | http://localhost:8081/blog/search?keyword=카카오뱅크 |
+   | 0 | http://localhost:8081/blog/search?keyword=카카오뱅크&sortType=1&pageNum=2&pageSize=5 |
+   | -1 | http://localhost:8081/blog/search?keyword= |
+   | -2 | http://localhost:8081/blog/search?keyword=카카오뱅크&pageNum=51 |
+   | -3 | http://localhost:8081/blog/search?keyword=카카오뱅크&pageSize=51 |
+   | -4 | http://localhost:8081/blog/search?keyword=카카오뱅크&sortType=2 |
+  
